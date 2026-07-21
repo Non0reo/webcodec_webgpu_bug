@@ -30,6 +30,7 @@ const presentationFormat = navigator.gpu.getPreferredCanvasFormat();
 context.configure({
   device,
   format: presentationFormat,
+  alphaMode: "premultiplied",
 });
 
 // Create a vertex buffer from the cube data.
@@ -119,7 +120,7 @@ const renderPassDescriptor: GPURenderPassDescriptor = {
       view: undefined, // Assigned later
 
       clearValue: [0.5, 0.5, 0.5, 1.0],
-      loadOp: 'clear',
+      loadOp: 'load',
       storeOp: 'store',
     },
   ],
@@ -160,6 +161,11 @@ function frame() {
     .getCurrentTexture()
     .createView();
 
+  // console.log( context
+  //   .getCurrentTexture() )
+
+
+
   const commandEncoder = device.createCommandEncoder();
   const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
   passEncoder.setPipeline(pipeline);
@@ -168,6 +174,8 @@ function frame() {
   passEncoder.draw(cubeVertexCount);
   passEncoder.end();
   device.queue.submit([commandEncoder.finish()]);
+
+  
 
   requestAnimationFrame(frame);
 }

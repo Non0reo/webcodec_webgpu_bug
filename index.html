@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>webcodec_webgpu_bug</title>
+  </head>
+  <body>
+    <div id="app">
+      <div id="canvases">
+        <canvas class="2d" width="500" height="300"></canvas>
+        <!-- <canvas class="webgl"></canvas> -->
+        <canvas class="webgpu" width="500" height="300"></canvas>
+      </div>
+      <button id="select-folder">Select Folder</button>
+      <select id="canvas-select">
+        <option value="2d">2d</option>
+        <option value="webgl" disabled>webgl</option>
+        <option value="webgpu">webgpu</option>
+      </select>
+      <button id="start-recording">Record for 5 seconds</button>
+    </div>
+
+    <script type="module" src="/src/2d/index.ts"></script>
+    <!-- <script type="module" src="/src/webgl/index.ts"></script> -->
+    <script type="module" src="/src/webgpu/index.ts"></script>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

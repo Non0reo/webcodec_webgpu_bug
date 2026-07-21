@@ -35,7 +35,7 @@ context.configure({
 // Create a vertex buffer from the cube data.
 const verticesBuffer = device.createBuffer({
   size: cubeVertexArray.byteLength,
-  usage: 32, //GPUBufferUsage.VERTEX,
+  usage: GPUBufferUsage.VERTEX,
   mappedAtCreation: true,
 });
 new Float32Array(verticesBuffer.getMappedRange()).set(cubeVertexArray);
@@ -98,13 +98,13 @@ const pipeline = device.createRenderPipeline({
 const depthTexture = device.createTexture({
   size: [canvas.width, canvas.height],
   format: 'depth24plus',
-  usage: 16 //GPUTextureUsage.RENDER_ATTACHMENT,
+  usage: GPUTextureUsage.RENDER_ATTACHMENT,
 });
 
 const uniformBufferSize = 4 * 16; // 4x4 matrix
 const uniformBuffer = device.createBuffer({
   size: uniformBufferSize,
-  usage: 64 | 8 //GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
+  usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
 });
 
 const uniformBindGroup = device.createBindGroup({

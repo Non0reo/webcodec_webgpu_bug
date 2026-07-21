@@ -14,6 +14,7 @@
     "vite": "^8.1.1"
   },
   "dependencies": {
+    "@types/web": "^0.0.353",
     "mediabunny": "^1.50.9",
     "wgpu-matrix": "^3.4.2"
   }

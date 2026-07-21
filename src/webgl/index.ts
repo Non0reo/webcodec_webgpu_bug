@@ -152,3 +152,4 @@ void main() {
 // }`;
 
 const program = createProgram(gl, vertexShaderText, fragmentShaderText);
+console.log(program)

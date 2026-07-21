@@ -5,8 +5,7 @@ import {
   CanvasSource,
   Mp4OutputFormat,
   Output,
-  StreamTarget,
-  WebMOutputFormat,
+  StreamTarget
 } from 'mediabunny';
 
 type State = 'no-folder-selected' | 'ready' | 'recording' | 'finished';

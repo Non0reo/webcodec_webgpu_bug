@@ -1,6 +1,4 @@
 import './style.css';
-
-// import { AvailableCodec, AvailableFormat, RecordingOptions } from './types/record';
 import {
   CanvasSource,
   Mp4OutputFormat,
@@ -76,7 +74,6 @@ async function startRecording(contextString: AvailableContext) {
 
   state = 'recording';
   await output.start();
-  // await this.createFile();
 
   captureCanvasFrames()
 }
